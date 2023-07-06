@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        style="@style/vertiPrefer"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/checklink"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="CHECK"
+            android:textSize="20sp"
+            android:background="#FABFFF"
+            style="@style/marginStyle"/>
+
+        <EditText
+            android:id="@+id/urlLink"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="8"
+            android:hint="Please enter the URL."
+            style="@style/marginStyle"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/fetchBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="Fetch"
+            android:textSize="20sp"
+            android:background="#C4FCCB"
+            style="@style/marginStyle"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        style="@style/vertiPrefer"
+        android:orientation="vertical"
+        android:layout_weight="9">
+
+        <LinearLayout
+            style="@style/vertiPrefer"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid1"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid1"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn1"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid2"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid2"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn2"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid3"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid3"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn3"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid4"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid4"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn4"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/vertiPrefer"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid5"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid5"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn5"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid6"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid6"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn6"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid7"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid7"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn7"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid8"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid8"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn8"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/vertiPrefer"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid9"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid9"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn9"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid10"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid10"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn10"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid11"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid11"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn11"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid12"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid12"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn12"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/vertiPrefer"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid13"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid13"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn13"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid14"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid14"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn14"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid15"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid15"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn15"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid16"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid16"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn16"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/vertiPrefer"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid17"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid17"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn17"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid18"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid18"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn18"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid19"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid19"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn19"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                style="@style/marginStyle">
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:src="@mipmap/border"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:id="@+id/importid20"/>
+                <ImageView
+                    style="@style/totalArrangement"
+                    android:visibility="invisible"
+                    android:src="@mipmap/marked"
+                    android:id="@+id/successid20"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/totalArrangement"
+                    android:id="@+id/picbtn20"
+                    android:backgroundTint="#00000000"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="2">
+
+        <LinearLayout
+            style="@style/vertiPrefer"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+
+            <LinearLayout
+                style="@style/horiPrefer"
+                android:layout_weight="12"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:text="download">
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process1" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process3" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process5" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process7" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process9" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process11" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process13" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process15" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process17" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process19" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+
+                <TextView
+                    style="@style/horiPrefer"
+                    android:layout_weight="1"
+                    android:text="00"
+                    android:textSize="13sp"
+                    android:id="@+id/downloadcount" />
+
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process20" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process18" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process16" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process14" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process12" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process10" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process8" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process6" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process4" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+                <TextView style="@style/horiPrefer" android:layout_weight="1" android:visibility="invisible" android:id="@+id/process2" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginTop="5px" android:layout_marginBottom="5px" android:background="#C4FCCB"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/vertiPrefer"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/horiPrefer"
+                android:layout_weight="13"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:text="Design by SA56-Team2"/>
+            <TextView
+                style="@style/horiPrefer"
+                android:layout_weight="1"
+                android:text="0"
+                android:gravity="right|center_vertical"
+                android:textSize="20sp"
+                android:id="@+id/showtest"/>
+            <TextView
+                style="@style/horiPrefer"
+                android:layout_weight="1"
+                android:text="/6"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/vertiPrefer"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/horiPrefer"
+                android:layout_weight="1"
+                android:id="@+id/reset"
+                android:background="#FABFFF"
+                android:text="RESET">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/horiPrefer"
+                android:layout_weight="1"
+                android:id="@+id/Play"
+                android:background="#C4FCCB"
+                android:text="PLAY">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
