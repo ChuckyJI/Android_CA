@@ -1,10 +1,12 @@
 package com.example.android_ca;
 
 import static com.example.android_ca.MainActivity.downloadImage;
+import static com.example.android_ca.MainActivity.strings;
 import static com.example.android_ca.MainActivity.sum;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.greenrobot.eventbus.EventBus;
@@ -53,6 +56,12 @@ public class MatchActivity extends AppCompatActivity{
     private MyCount mc;
     final int[] benchmark = {0,0,0,0};
     final int[][] origin = {{0},{0},{0},{0},{0},{0}};
+    static String weblink0="";
+    static String weblink1="";
+    static String weblink2="";
+    static String weblink3="";
+    static String weblink4="";
+    static String weblink5="";
 
     static Integer[] importpic = {R.id.importid1,R.id.importid2,R.id.importid3,R.id.importid4,R.id.importid5,R.id.importid6,
             R.id.importid7,R.id.importid8,R.id.importid9,R.id.importid10,R.id.importid11,R.id.importid12};
@@ -106,31 +115,6 @@ public class MatchActivity extends AppCompatActivity{
         for(int i =0;i<importpic.length;i++){
             findViewById(importpic[i]).setVisibility(ImageView.INVISIBLE);
         }
-    }
-
-    public void testForOne(int[] a){
-        Button picBtn = findViewById(R.id.picbtn1);
-        picBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ImageView imageView1 = findViewById(R.id.importid1);
-                imageView1.setVisibility(ImageView.VISIBLE);
-                a[0] = imageView1.getId();
-            }
-        });
-
-        Button picBtn2 = findViewById(R.id.picbtn2);
-        picBtn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ImageView imageView1 = findViewById(R.id.importid2);
-                imageView1.setVisibility(ImageView.VISIBLE);
-                a[1] = imageView1.getId();
-            }
-        });
-    }
-
-    public void receivePic(){
     }
 
     public boolean isEqual(int[] a,int[] b){
@@ -283,18 +267,51 @@ public class MatchActivity extends AppCompatActivity{
             toast = Toast.makeText(this.getApplicationContext(),"Congratulations! Player 1 wins!",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
+            new AlertDialog.Builder(this)
+                    .setTitle("Congratulations!")
+                    .setMessage("The winner is Player 1 ! \nThe score is "+scorePlayer1+".")
+                    .setPositiveButton("Play again!", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent=new Intent(MatchActivity.this,MatchActivity.class);
+                            resetParamWhenAgain(intent);
+                            startActivity(intent);
+                        }})
+                    .setNegativeButton("OK",null) .show();
         }
         else if(scorePlayer1<scorePLayer2){
             Toast toast;
             toast = Toast.makeText(this.getApplicationContext(),"Congratulations! Player 2 wins!",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
+            new AlertDialog.Builder(this)
+                    .setTitle("Congratulations!")
+                    .setMessage("The winner is Player 2 ! \nThe score is "+scorePLayer2+".")
+                    .setPositiveButton("Play again!", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent=new Intent(MatchActivity.this,MatchActivity.class);
+                            resetParamWhenAgain(intent);
+                            startActivity(intent);
+                        }})
+                    .setNegativeButton("OK",null) .show();
         }
         else{
             Toast toast;
             toast = Toast.makeText(this.getApplicationContext(),"We are friends!",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
+            new AlertDialog.Builder(this)
+                    .setTitle("Congratulations!")
+                    .setMessage("The winner is Player 1 and Player 2 ! \nWe are friends!")
+                    .setPositiveButton("Play again!", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent=new Intent(MatchActivity.this,MatchActivity.class);
+                            resetParamWhenAgain(intent);
+                            startActivity(intent);
+                        }})
+                    .setNegativeButton("OK",null) .show();
         }
         soundpool.play(soundmap.get(4), 1,1,0,0,1);
     }
@@ -340,12 +357,12 @@ public class MatchActivity extends AppCompatActivity{
     }
 
     public void initComparation(){
-        String weblink0 = getIntent().getStringExtra("playbtn0");
-        String weblink1 = getIntent().getStringExtra("playbtn1");
-        String weblink2 = getIntent().getStringExtra("playbtn2");
-        String weblink3 = getIntent().getStringExtra("playbtn3");
-        String weblink4 = getIntent().getStringExtra("playbtn4");
-        String weblink5 = getIntent().getStringExtra("playbtn5");
+        weblink0 = getIntent().getStringExtra("playbtn0");
+        weblink1 = getIntent().getStringExtra("playbtn1");
+        weblink2 = getIntent().getStringExtra("playbtn2");
+        weblink3 = getIntent().getStringExtra("playbtn3");
+        weblink4 = getIntent().getStringExtra("playbtn4");
+        weblink5 = getIntent().getStringExtra("playbtn5");
 
 
         Collections.shuffle(Arrays.asList(importpic));
@@ -369,7 +386,7 @@ public class MatchActivity extends AppCompatActivity{
 
     public void setupTimer(){
         countdown = findViewById(R.id.timer);
-        mc = new MyCount(20000, 1000);
+        mc = new MyCount(3000, 1000);
         mc.start();
     }
 
@@ -414,5 +431,24 @@ public class MatchActivity extends AppCompatActivity{
                 finish();
             }
         });
+    }
+
+    public void resetParamWhenAgain(Intent intent){
+        sum=0;
+        scorePlayer1=0;
+        scorePLayer2=0;
+        player = false;
+        intent.putExtra("playbtn0",weblink0);
+        intent.putExtra("playbtn1",weblink1);
+        intent.putExtra("playbtn2",weblink2);
+        intent.putExtra("playbtn3",weblink3);
+        intent.putExtra("playbtn4",weblink4);
+        intent.putExtra("playbtn5",weblink5);
+        weblink0="";
+        weblink1="";
+        weblink2="";
+        weblink3="";
+        weblink4="";
+        weblink5="";
     }
 }

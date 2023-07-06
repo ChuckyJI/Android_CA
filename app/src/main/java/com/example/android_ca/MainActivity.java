@@ -1,7 +1,9 @@
 package com.example.android_ca;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -345,5 +347,7 @@ public class MainActivity extends AppCompatActivity{
             }
         });
     }
-
 }
+
+
+
