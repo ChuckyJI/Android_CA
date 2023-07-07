@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.squareup.picasso.Picasso;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 initAllBtn();
-                arrangePic(picint,processint,strings,importpic);
+                arrangePic(picint,processint,strings);
             }
         });
     }
@@ -255,7 +257,7 @@ public class MainActivity extends AppCompatActivity{
         return false;
     }
 
-    public void arrangePic(Integer[] picint,Integer[] processint,String[] strings1,Integer[] importpic){
+    public void arrangePic(Integer[] picint,Integer[] processint,String[] strings1){
         for(int i =0;i<picint.length;i++){
             String destFilename = UUID.randomUUID().toString() + strings1[i].substring(strings1[i].lastIndexOf("."));
             File dir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
@@ -264,14 +266,15 @@ public class MainActivity extends AppCompatActivity{
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    boolean download = downloadImage(strings1[finalI],destFile);
-                    if(download){
+//                    boolean download = downloadImage(strings1[finalI],destFile);
+//                    if(download){
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Bitmap bitmap = BitmapFactory.decodeFile(destFile.getAbsolutePath());
+//                                Bitmap bitmap = BitmapFactory.decodeFile(destFile.getAbsolutePath());
                                 ImageView imageView = findViewById(picint[finalI]);
-                                imageView.setImageBitmap(bitmap);
+//                                imageView.setImageBitmap(bitmap);
+                                Picasso.get().load(strings1[finalI]).into(imageView);
                                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
                                 findViewById(borderpic[finalI]).setVisibility(View.INVISIBLE);
@@ -284,7 +287,7 @@ public class MainActivity extends AppCompatActivity{
                                 textView1.setVisibility(View.VISIBLE);
                             }
                         });
-                    }
+//                    }
                 }
             }).start();
         }

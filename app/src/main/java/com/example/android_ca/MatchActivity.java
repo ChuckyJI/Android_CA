@@ -26,6 +26,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.squareup.picasso.Picasso;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
@@ -94,22 +96,24 @@ public class MatchActivity extends AppCompatActivity{
         new Thread(new Runnable() {
             @Override
             public void run() {
-                boolean download = downloadImage(imgURL,destFile);
-                if(download){
+//                boolean download = downloadImage(imgURL,destFile);
+//                if(download){
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             Bitmap bitmap = BitmapFactory.decodeFile(destFile.getAbsolutePath());
                             ImageView imageView = findViewById(picint);
-                            imageView.setImageBitmap(bitmap);
+//                            imageView.setImageBitmap(bitmap);
+                            Picasso.get().load(imgURL).into(imageView);
                             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
                             ImageView imageView1 = findViewById(picint2);
-                            imageView1.setImageBitmap(bitmap);
+//                            imageView1.setImageBitmap(bitmap);
+                            Picasso.get().load(imgURL).into(imageView1);
                             imageView1.setScaleType(ImageView.ScaleType.CENTER_CROP);
                         }
                     });
-                }
+//                }
             }
         }).start();
         return new int[]{picint,picint2};
@@ -288,6 +292,7 @@ public class MatchActivity extends AppCompatActivity{
                             Intent intent=new Intent(MatchActivity.this,MatchActivity.class);
                             resetParamWhenAgain(intent);
                             startActivity(intent);
+                            finish();
                         }})
                     .setNegativeButton("OK",null) .show();
         }
@@ -305,6 +310,7 @@ public class MatchActivity extends AppCompatActivity{
                             Intent intent=new Intent(MatchActivity.this,MatchActivity.class);
                             resetParamWhenAgain(intent);
                             startActivity(intent);
+                            finish();
                         }})
                     .setNegativeButton("OK",null) .show();
         }
@@ -322,6 +328,7 @@ public class MatchActivity extends AppCompatActivity{
                             Intent intent=new Intent(MatchActivity.this,MatchActivity.class);
                             resetParamWhenAgain(intent);
                             startActivity(intent);
+                            finish();
                         }})
                     .setNegativeButton("OK",null) .show();
         }
@@ -459,15 +466,6 @@ public class MatchActivity extends AppCompatActivity{
         intent.putExtra("playbtn3",weblink3);
         intent.putExtra("playbtn4",weblink4);
         intent.putExtra("playbtn5",weblink5);
-        weblink0="";
-        weblink1="";
-        weblink2="";
-        weblink3="";
-        weblink4="";
-        weblink5="";
-        for (Integer integer : borderpic) {
-            findViewById(integer).setVisibility(View.VISIBLE);
-        }
     }
 
     public void initEnvi(){
@@ -492,3 +490,4 @@ public class MatchActivity extends AppCompatActivity{
         textViewPlayer2Score.setTextColor(Color.RED);
     }
 }
+
