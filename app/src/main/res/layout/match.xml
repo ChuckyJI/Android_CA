@@ -89,7 +89,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     style="@style/totalArrangement"
                     android:id="@+id/picbtn1"
-                    android:backgroundTint="#00000000"/>
+                    android:background="@drawable/transparent_border"/>/>
 
             </FrameLayout>
 
@@ -110,7 +110,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     style="@style/totalArrangement"
                     android:id="@+id/picbtn2"
-                    android:backgroundTint="#00000000"/>
+                    android:background="@drawable/transparent_border"/>/>
 
             </FrameLayout>
 
@@ -132,7 +132,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     style="@style/totalArrangement"
                     android:id="@+id/picbtn3"
-                    android:backgroundTint="#00000000"/>
+                    android:background="@drawable/transparent_border"/>/>
 
             </FrameLayout>
 
@@ -161,7 +161,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     style="@style/totalArrangement"
                     android:id="@+id/picbtn4"
-                    android:backgroundTint="#00000000"/>
+                    android:background="@drawable/transparent_border"/>/>
 
             </FrameLayout>
 
@@ -182,7 +182,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     style="@style/totalArrangement"
                     android:id="@+id/picbtn5"
-                    android:backgroundTint="#00000000"/>
+                    android:background="@drawable/transparent_border"/>/>
 
             </FrameLayout>
 
@@ -203,7 +203,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     style="@style/totalArrangement"
                     android:id="@+id/picbtn6"
-                    android:backgroundTint="#00000000"/>
+                    android:background="@drawable/transparent_border"/>/>
 
             </FrameLayout>
 
@@ -232,7 +232,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     style="@style/totalArrangement"
                     android:id="@+id/picbtn7"
-                    android:backgroundTint="#00000000"/>
+                    android:background="@drawable/transparent_border"/>/>
 
             </FrameLayout>
 
@@ -253,7 +253,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     style="@style/totalArrangement"
                     android:id="@+id/picbtn8"
-                    android:backgroundTint="#00000000"/>
+                    android:background="@drawable/transparent_border"/>/>
 
             </FrameLayout>
 
@@ -274,7 +274,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     style="@style/totalArrangement"
                     android:id="@+id/picbtn9"
-                    android:backgroundTint="#00000000"/>
+                    android:background="@drawable/transparent_border"/>/>
 
             </FrameLayout>
 
@@ -302,7 +302,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     style="@style/totalArrangement"
                     android:id="@+id/picbtn10"
-                    android:backgroundTint="#00000000"/>
+                    android:background="@drawable/transparent_border"/>/>
 
             </FrameLayout>
 
@@ -323,7 +323,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     style="@style/totalArrangement"
                     android:id="@+id/picbtn11"
-                    android:backgroundTint="#00000000"/>
+                    android:background="@drawable/transparent_border"/>/>
 
             </FrameLayout>
 
@@ -344,7 +344,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     style="@style/totalArrangement"
                     android:id="@+id/picbtn12"
-                    android:backgroundTint="#00000000"/>
+                    android:background="@drawable/transparent_border"/>/>
 
             </FrameLayout>
         </LinearLayout>
