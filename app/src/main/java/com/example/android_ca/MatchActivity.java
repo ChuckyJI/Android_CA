@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -71,10 +72,13 @@ public class MatchActivity extends AppCompatActivity{
     static Integer[] buttonpic = {R.id.picbtn1,R.id.picbtn2,R.id.picbtn3,R.id.picbtn4,R.id.picbtn5,R.id.picbtn6,
             R.id.picbtn7,R.id.picbtn8,R.id.picbtn9,R.id.picbtn10,R.id.picbtn11,R.id.picbtn12};
 
+//    static Integer[] borderpic = {R.id.border1,R.id.border2,R.id.border3,R.id.border4,R.id.border5,R.id.border6,
+//            R.id.border7,R.id.border8,R.id.border9,R.id.border10,R.id.border11,R.id.border12};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.match);
+        initEnvi();
         soundLib();
         setupTimer();
         initComparation();
@@ -226,6 +230,7 @@ public class MatchActivity extends AppCompatActivity{
                 textView.setText(String.valueOf(scorePlayer1));
                 TextView textView1 = findViewById(R.id.player2);
                 textView1.setText(String.valueOf(scorePLayer2));
+                initEnvi();
             }
             else{
                 scorePlayer1 -= 50;
@@ -235,6 +240,7 @@ public class MatchActivity extends AppCompatActivity{
                 textView.setText(String.valueOf(scorePlayer1));
                 TextView textView1 = findViewById(R.id.player2);
                 textView1.setText(String.valueOf(scorePLayer2));
+                initEnviInverse();
             }
         }
         else{
@@ -386,7 +392,7 @@ public class MatchActivity extends AppCompatActivity{
 
     public void setupTimer(){
         countdown = findViewById(R.id.timer);
-        mc = new MyCount(3000, 1000);
+        mc = new MyCount(101000, 1000);
         mc.start();
     }
 
@@ -450,5 +456,27 @@ public class MatchActivity extends AppCompatActivity{
         weblink3="";
         weblink4="";
         weblink5="";
+    }
+
+    public void initEnvi(){
+        TextView textViewPlayer1 = findViewById(R.id.player1Name);
+        textViewPlayer1.setTextColor(Color.RED);
+        TextView textViewPlayer2 = findViewById(R.id.player2Name);
+        textViewPlayer2.setTextColor(Color.GRAY);
+        TextView textViewPlayer1Score = findViewById(R.id.player1);
+        textViewPlayer1Score.setTextColor(Color.RED);
+        TextView textViewPlayer2Score = findViewById(R.id.player2);
+        textViewPlayer2Score.setTextColor(Color.GRAY);
+    }
+
+    public void initEnviInverse(){
+        TextView textViewPlayer1 = findViewById(R.id.player1Name);
+        textViewPlayer1.setTextColor(Color.GRAY);
+        TextView textViewPlayer2 = findViewById(R.id.player2Name);
+        textViewPlayer2.setTextColor(Color.RED);
+        TextView textViewPlayer1Score = findViewById(R.id.player1);
+        textViewPlayer1Score.setTextColor(Color.GRAY);
+        TextView textViewPlayer2Score = findViewById(R.id.player2);
+        textViewPlayer2Score.setTextColor(Color.RED);
     }
 }

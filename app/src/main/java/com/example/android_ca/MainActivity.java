@@ -56,6 +56,10 @@ public class MainActivity extends AppCompatActivity{
     static Integer[] successpic = {R.id.successid1,R.id.successid2,R.id.successid3,R.id.successid4,R.id.successid5,R.id.successid6,
             R.id.successid7,R.id.successid8,R.id.successid9,R.id.successid10,R.id.successid11,R.id.successid12,R.id.successid13,R.id.successid14,
             R.id.successid15,R.id.successid16,R.id.successid17,R.id.successid18,R.id.successid19,R.id.successid20};
+
+    static Integer[] borderpic = {R.id.border1,R.id.border2,R.id.border3,R.id.border4,R.id.border5,R.id.border6,
+            R.id.border7,R.id.border8,R.id.border9,R.id.border10,R.id.border11,R.id.border12,R.id.border13,R.id.border14,
+            R.id.border15,R.id.border16,R.id.border17,R.id.border18,R.id.border19,R.id.border20};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,7 +100,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 initAllBtn();
-                arrangePic(picint,processint,strings);
+                arrangePic(picint,processint,strings,importpic);
             }
         });
     }
@@ -170,6 +174,9 @@ public class MainActivity extends AppCompatActivity{
                     intent.putExtra("playbtn5",weblink.get(result.get(5)));
                     downcount=0;
                     sum=0;
+                    for (Integer integer : borderpic) {
+                        findViewById(integer).setVisibility(View.VISIBLE);
+                    }
                     startActivity(intent);
                     finish();
                 }
@@ -248,7 +255,7 @@ public class MainActivity extends AppCompatActivity{
         return false;
     }
 
-    public void arrangePic(Integer[] picint,Integer[] processint,String[] strings1){
+    public void arrangePic(Integer[] picint,Integer[] processint,String[] strings1,Integer[] importpic){
         for(int i =0;i<picint.length;i++){
             String destFilename = UUID.randomUUID().toString() + strings1[i].substring(strings1[i].lastIndexOf("."));
             File dir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
@@ -266,6 +273,8 @@ public class MainActivity extends AppCompatActivity{
                                 ImageView imageView = findViewById(picint[finalI]);
                                 imageView.setImageBitmap(bitmap);
                                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+                                findViewById(borderpic[finalI]).setVisibility(View.INVISIBLE);
 
                                 TextView textView = findViewById(R.id.downloadcount);
                                 downcount+=1;
