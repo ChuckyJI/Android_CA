@@ -172,10 +172,14 @@ public class MatchActivity extends AppCompatActivity{
                     benchmark[2] = importId;
                     benchmark[3] = buttonid;
                     benchmark[4] = borderid;
+                    Button test1 = findViewById(benchmark[3]);
+                    test1.setEnabled(false);
                 }
                 else{
                     benchmark[1] = imageViewself.getId();
                     if(!isEqualForAll(origin,benchmark)){
+                        Button test1 = findViewById(benchmark[3]);
+                        test1.setEnabled(true);
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
