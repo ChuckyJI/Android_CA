@@ -55,7 +55,7 @@ public class MatchActivity extends AppCompatActivity{
     static Integer scorePLayer2 = 0;
     private TextView countdown;
     private MyCount mc;
-    final int[] benchmark = {0,0,0,0};
+    final int[] benchmark = {0,0,0,0,0};
     final int[][] origin = {{0},{0},{0},{0},{0},{0}};
     static String weblink0="";
     static String weblink1="";
@@ -72,8 +72,8 @@ public class MatchActivity extends AppCompatActivity{
     static Integer[] buttonpic = {R.id.picbtn1,R.id.picbtn2,R.id.picbtn3,R.id.picbtn4,R.id.picbtn5,R.id.picbtn6,
             R.id.picbtn7,R.id.picbtn8,R.id.picbtn9,R.id.picbtn10,R.id.picbtn11,R.id.picbtn12};
 
-//    static Integer[] borderpic = {R.id.border1,R.id.border2,R.id.border3,R.id.border4,R.id.border5,R.id.border6,
-//            R.id.border7,R.id.border8,R.id.border9,R.id.border10,R.id.border11,R.id.border12};
+    static Integer[] borderpic = {R.id.border1,R.id.border2,R.id.border3,R.id.border4,R.id.border5,R.id.border6,
+            R.id.border7,R.id.border8,R.id.border9,R.id.border10,R.id.border11,R.id.border12};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -156,7 +156,7 @@ public class MatchActivity extends AppCompatActivity{
         return temp;
     }
 
-    public void comparePic(int[] benchmark,int[][] origin,int importId,int buttonid){
+    public void comparePic(int[] benchmark,int[][] origin,int importId,int buttonid,int borderid){
         Button picBtn = findViewById(buttonid);
         picBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,6 +167,7 @@ public class MatchActivity extends AppCompatActivity{
                     benchmark[0] = imageViewself.getId();
                     benchmark[2] = importId;
                     benchmark[3] = buttonid;
+                    benchmark[4] = borderid;
                 }
                 else{
                     benchmark[1] = imageViewself.getId();
@@ -190,6 +191,7 @@ public class MatchActivity extends AppCompatActivity{
                                     benchmark[1]=0;
                                     benchmark[2]=0;
                                     benchmark[3]=0;
+                                    benchmark[4]=0;
                                 }
                             }
                         }).start();
@@ -202,6 +204,9 @@ public class MatchActivity extends AppCompatActivity{
                         Button test1 = findViewById(benchmark[3]);
                         test1.setEnabled(false);
 
+                        findViewById(benchmark[4]).setVisibility(View.INVISIBLE);
+                        findViewById(borderid).setVisibility(View.INVISIBLE);
+
                         setscore(true);
 
                         soundpool.play(soundmap.get(1), 1,1,0,0,1);
@@ -210,6 +215,7 @@ public class MatchActivity extends AppCompatActivity{
                         benchmark[1]=0;
                         benchmark[2]=0;
                         benchmark[3]=0;
+                        benchmark[4]=0;
                         if (count == 6) {
                             releaseResult();
                             onDestroy();
@@ -398,7 +404,7 @@ public class MatchActivity extends AppCompatActivity{
 
     public void compareGame(){
         for(int i = 0;i<buttonpic.length;i++){
-            comparePic(benchmark,origin,importpicOriginal[i],buttonpic[i]);
+            comparePic(benchmark,origin,importpicOriginal[i],buttonpic[i],borderpic[i]);
         }
     }
 
@@ -433,6 +439,9 @@ public class MatchActivity extends AppCompatActivity{
                 scorePlayer1=0;
                 scorePLayer2=0;
                 player = false;
+                for (Integer integer : borderpic) {
+                    findViewById(integer).setVisibility(View.VISIBLE);
+                }
                 startActivity(intent);
                 finish();
             }
@@ -456,6 +465,9 @@ public class MatchActivity extends AppCompatActivity{
         weblink3="";
         weblink4="";
         weblink5="";
+        for (Integer integer : borderpic) {
+            findViewById(integer).setVisibility(View.VISIBLE);
+        }
     }
 
     public void initEnvi(){
