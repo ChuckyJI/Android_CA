@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity{
                 if(result.size()==6){
                     new AlertDialog.Builder(v.getContext())
                             .setTitle("Player")
-                            .setMessage("Please select No. of Player.")
+                            .setMessage("Please select the number of players.")
                             .setNegativeButton("1 Player", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
