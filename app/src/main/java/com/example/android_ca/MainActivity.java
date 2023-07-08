@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity{
                                     finish();
                                 }
                             })
-                            .setPositiveButton("2 Player", new DialogInterface.OnClickListener() {
+                            .setPositiveButton("2 Players", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     Intent intent = new Intent(MainActivity.this, MatchActivity.class);
