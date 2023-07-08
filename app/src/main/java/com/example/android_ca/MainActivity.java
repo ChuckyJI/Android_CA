@@ -314,6 +314,7 @@ public class MainActivity extends AppCompatActivity{
                                 @Override
                                 public void run() {
                                     Toast.makeText(view.getContext(),"Please enter a valid URL!", Toast.LENGTH_SHORT).show();
+                                    findViewById(R.id.fetchBtn).setEnabled(false);
                                 }
                             });
                         }
@@ -334,6 +335,7 @@ public class MainActivity extends AppCompatActivity{
                                     @Override
                                     public void run() {
                                         Toast.makeText(view.getContext(),"URL is valid. Please click FETCH!", Toast.LENGTH_SHORT).show();
+                                        findViewById(R.id.fetchBtn).setEnabled(true);
                                     }
                                 });
                             }
@@ -342,6 +344,7 @@ public class MainActivity extends AppCompatActivity{
                                     @Override
                                     public void run() {
                                         Toast.makeText(view.getContext(),"HTML parsing is invalid", Toast.LENGTH_SHORT).show();
+                                        findViewById(R.id.fetchBtn).setEnabled(false);
                                     }
                                 });
                             }
@@ -350,6 +353,7 @@ public class MainActivity extends AppCompatActivity{
                                     @Override
                                     public void run() {
                                         Toast.makeText(view.getContext(),"The number of valid pic is less than 20.", Toast.LENGTH_SHORT).show();
+                                        findViewById(R.id.fetchBtn).setEnabled(false);
                                     }
                                 });
                             }

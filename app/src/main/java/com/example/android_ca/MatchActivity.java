@@ -320,12 +320,12 @@ public class MatchActivity extends AppCompatActivity{
         }
         else{
             Toast toast;
-            toast = Toast.makeText(this.getApplicationContext(),"We are friends!",Toast.LENGTH_LONG);
+            toast = Toast.makeText(this.getApplicationContext(),"It's a draw!",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
             new AlertDialog.Builder(this)
                     .setTitle("Congratulations!")
-                    .setMessage("The winner is Player 1 and Player 2 ! \nWe are friends!")
+                    .setMessage("The winner is Player 1 and Player 2 ! \nIt's a draw!")
                     .setPositiveButton("Play again!", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
