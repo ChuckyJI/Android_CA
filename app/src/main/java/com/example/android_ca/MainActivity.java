@@ -162,25 +162,56 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void readyToPlay(){
+
         Button playBtn = findViewById(R.id.Play);
         playBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 if(result.size()==6){
-                    Intent intent = new Intent(MainActivity.this, MatchActivity.class);
-                    intent.putExtra("playbtn0",weblink.get(result.get(0)));
-                    intent.putExtra("playbtn1",weblink.get(result.get(1)));
-                    intent.putExtra("playbtn2",weblink.get(result.get(2)));
-                    intent.putExtra("playbtn3",weblink.get(result.get(3)));
-                    intent.putExtra("playbtn4",weblink.get(result.get(4)));
-                    intent.putExtra("playbtn5",weblink.get(result.get(5)));
-                    downcount=0;
-                    sum=0;
-                    for (Integer integer : borderpic) {
-                        findViewById(integer).setVisibility(View.VISIBLE);
-                    }
-                    startActivity(intent);
-                    finish();
+                    new AlertDialog.Builder(v.getContext())
+                            .setTitle("Player")
+                            .setMessage("Please select No. of Player.")
+                            .setNegativeButton("1 Player", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Intent intent = new Intent(MainActivity.this, MatchActivity.class);
+                                    intent.putExtra("playbtn0",weblink.get(result.get(0)));
+                                    intent.putExtra("playbtn1",weblink.get(result.get(1)));
+                                    intent.putExtra("playbtn2",weblink.get(result.get(2)));
+                                    intent.putExtra("playbtn3",weblink.get(result.get(3)));
+                                    intent.putExtra("playbtn4",weblink.get(result.get(4)));
+                                    intent.putExtra("playbtn5",weblink.get(result.get(5)));
+                                    intent.putExtra("playerNumber",1);
+                                    downcount=0;
+                                    sum=0;
+                                    for (Integer integer : borderpic) {
+                                        findViewById(integer).setVisibility(View.VISIBLE);
+                                    }
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            })
+                            .setPositiveButton("2 Player", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Intent intent = new Intent(MainActivity.this, MatchActivity.class);
+                                    intent.putExtra("playbtn0",weblink.get(result.get(0)));
+                                    intent.putExtra("playbtn1",weblink.get(result.get(1)));
+                                    intent.putExtra("playbtn2",weblink.get(result.get(2)));
+                                    intent.putExtra("playbtn3",weblink.get(result.get(3)));
+                                    intent.putExtra("playbtn4",weblink.get(result.get(4)));
+                                    intent.putExtra("playbtn5",weblink.get(result.get(5)));
+                                    intent.putExtra("playerNumber",2);
+                                    downcount=0;
+                                    sum=0;
+                                    for (Integer integer : borderpic) {
+                                        findViewById(integer).setVisibility(View.VISIBLE);
+                                    }
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            })
+                            .show();
                 }
                 else{
                     Toast.makeText(v.getContext(), "Please make sure you have select 6 pics", Toast.LENGTH_SHORT).show();
@@ -282,7 +313,6 @@ public class MainActivity extends AppCompatActivity{
                                 TextView textView = findViewById(R.id.downloadcount);
                                 downcount+=1;
                                 textView.setText(String.valueOf(downcount));
-
                                 TextView textView1 = findViewById(processint[finalI]);
                                 textView1.setVisibility(View.VISIBLE);
                             }

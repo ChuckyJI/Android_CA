@@ -397,6 +397,7 @@
                 style="@style/horiPrefer"
                 android:src="@mipmap/player2"
                 android:layout_weight="1"
+                android:id="@+id/player2pic"
                 />
 
             <LinearLayout

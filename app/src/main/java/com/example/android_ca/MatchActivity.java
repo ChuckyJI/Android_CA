@@ -65,6 +65,7 @@ public class MatchActivity extends AppCompatActivity{
     static String weblink3="";
     static String weblink4="";
     static String weblink5="";
+    static Integer playerNumber = 0;
 
     static Integer[] importpic = {R.id.importid1,R.id.importid2,R.id.importid3,R.id.importid4,R.id.importid5,R.id.importid6,
             R.id.importid7,R.id.importid8,R.id.importid9,R.id.importid10,R.id.importid11,R.id.importid12};
@@ -80,10 +81,11 @@ public class MatchActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.match);
-        initEnvi();
+
         soundLib();
         setupTimer();
         initComparation();
+        initEnvi();
         compareGame();
         backToMain();
     }
@@ -188,7 +190,15 @@ public class MatchActivity extends AppCompatActivity{
                                     ImageView imageViewother = findViewById(benchmark[2]);
                                     imageViewother.setVisibility(ImageView.INVISIBLE);
                                     imageViewself.setVisibility(ImageView.INVISIBLE);
-                                    setscore(false);
+
+                                    if(playerNumber==1){
+                                        scorePlayer1 -= 50;
+                                        TextView textView = findViewById(R.id.player1);
+                                        textView.setText(String.valueOf(scorePlayer1));
+                                    }
+                                    if(playerNumber==2){
+                                        setscore(false);
+                                    }
                                     soundpool.play(soundmap.get(2), 1,1,0,0,1);
 
                                 } catch (InterruptedException e) {
@@ -215,7 +225,14 @@ public class MatchActivity extends AppCompatActivity{
                         findViewById(benchmark[4]).setVisibility(View.INVISIBLE);
                         findViewById(borderid).setVisibility(View.INVISIBLE);
 
-                        setscore(true);
+                        if(playerNumber==1){
+                            scorePlayer1 += 100;
+                            TextView textView1 = findViewById(R.id.player1);
+                            textView1.setText(String.valueOf(scorePlayer1));
+                        }
+                        if(playerNumber==2){
+                            setscore(true);
+                        }
 
                         soundpool.play(soundmap.get(1), 1,1,0,0,1);
 
@@ -280,16 +297,71 @@ public class MatchActivity extends AppCompatActivity{
     }
 
     public void releaseResult(){
-        TextView textView = findViewById(R.id.correctPairs);
-        int result = Integer.parseInt(textView.getText().toString());
-        if (scorePlayer1>scorePLayer2){
+        if(playerNumber==2){
+            if (scorePlayer1>scorePLayer2){
+                Toast toast;
+                toast = Toast.makeText(this.getApplicationContext(),"Congratulations! Player 1 wins!",Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                new AlertDialog.Builder(this)
+                        .setTitle("Congratulations!")
+                        .setMessage("The winner is Player 1 ! \nThe score is "+scorePlayer1+".")
+                        .setPositiveButton("Play again!", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent=new Intent(MatchActivity.this,MatchActivity.class);
+                                resetParamWhenAgain(intent);
+                                startActivity(intent);
+                                finish();
+                            }})
+                        .setNegativeButton("OK",null) .show();
+            }
+            else if(scorePlayer1<scorePLayer2){
+                Toast toast;
+                toast = Toast.makeText(this.getApplicationContext(),"Congratulations! Player 2 wins!",Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                new AlertDialog.Builder(this)
+                        .setTitle("Congratulations!")
+                        .setMessage("The winner is Player 2 ! \nThe score is "+scorePLayer2+".")
+                        .setPositiveButton("Play again!", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent=new Intent(MatchActivity.this,MatchActivity.class);
+                                resetParamWhenAgain(intent);
+                                startActivity(intent);
+                                finish();
+                            }})
+                        .setNegativeButton("OK",null) .show();
+            }
+            else{
+                Toast toast;
+                toast = Toast.makeText(this.getApplicationContext(),"It's a draw!",Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                new AlertDialog.Builder(this)
+                        .setTitle("Congratulations!")
+                        .setMessage("The winner are Player 1 and Player 2 ! \nIt's a draw!")
+                        .setPositiveButton("Play again!", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent=new Intent(MatchActivity.this,MatchActivity.class);
+                                resetParamWhenAgain(intent);
+                                startActivity(intent);
+                                finish();
+                            }})
+                        .setNegativeButton("OK",null) .show();
+            }
+            soundpool.play(soundmap.get(4), 1,1,0,0,1);
+        }
+        if(playerNumber==1){
             Toast toast;
-            toast = Toast.makeText(this.getApplicationContext(),"Congratulations! Player 1 wins!",Toast.LENGTH_LONG);
+            toast = Toast.makeText(this.getApplicationContext(),"Have fun!",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
             new AlertDialog.Builder(this)
                     .setTitle("Congratulations!")
-                    .setMessage("The winner is Player 1 ! \nThe score is "+scorePlayer1+".")
+                    .setMessage("Have fun! \nThe score is "+scorePlayer1+".")
                     .setPositiveButton("Play again!", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -299,44 +371,9 @@ public class MatchActivity extends AppCompatActivity{
                             finish();
                         }})
                     .setNegativeButton("OK",null) .show();
+            soundpool.play(soundmap.get(4), 1,1,0,0,1);
         }
-        else if(scorePlayer1<scorePLayer2){
-            Toast toast;
-            toast = Toast.makeText(this.getApplicationContext(),"Congratulations! Player 2 wins!",Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
-            new AlertDialog.Builder(this)
-                    .setTitle("Congratulations!")
-                    .setMessage("The winner is Player 2 ! \nThe score is "+scorePLayer2+".")
-                    .setPositiveButton("Play again!", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent=new Intent(MatchActivity.this,MatchActivity.class);
-                            resetParamWhenAgain(intent);
-                            startActivity(intent);
-                            finish();
-                        }})
-                    .setNegativeButton("OK",null) .show();
-        }
-        else{
-            Toast toast;
-            toast = Toast.makeText(this.getApplicationContext(),"It's a draw!",Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
-            new AlertDialog.Builder(this)
-                    .setTitle("Congratulations!")
-                    .setMessage("The winner is Player 1 and Player 2 ! \nIt's a draw!")
-                    .setPositiveButton("Play again!", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent=new Intent(MatchActivity.this,MatchActivity.class);
-                            resetParamWhenAgain(intent);
-                            startActivity(intent);
-                            finish();
-                        }})
-                    .setNegativeButton("OK",null) .show();
-        }
-        soundpool.play(soundmap.get(4), 1,1,0,0,1);
+
     }
     class MyCount extends CountDownTimer {
 
@@ -386,6 +423,7 @@ public class MatchActivity extends AppCompatActivity{
         weblink3 = getIntent().getStringExtra("playbtn3");
         weblink4 = getIntent().getStringExtra("playbtn4");
         weblink5 = getIntent().getStringExtra("playbtn5");
+        playerNumber = getIntent().getIntExtra("playerNumber",0);
 
 
         Collections.shuffle(Arrays.asList(importpic));
@@ -470,28 +508,57 @@ public class MatchActivity extends AppCompatActivity{
         intent.putExtra("playbtn3",weblink3);
         intent.putExtra("playbtn4",weblink4);
         intent.putExtra("playbtn5",weblink5);
+        intent.putExtra("playerNumber",playerNumber);
     }
 
     public void initEnvi(){
-        TextView textViewPlayer1 = findViewById(R.id.player1Name);
-        textViewPlayer1.setTextColor(Color.RED);
-        TextView textViewPlayer2 = findViewById(R.id.player2Name);
-        textViewPlayer2.setTextColor(Color.GRAY);
-        TextView textViewPlayer1Score = findViewById(R.id.player1);
-        textViewPlayer1Score.setTextColor(Color.RED);
-        TextView textViewPlayer2Score = findViewById(R.id.player2);
-        textViewPlayer2Score.setTextColor(Color.GRAY);
+        if(playerNumber==1){
+            TextView textViewPlayer1 = findViewById(R.id.player1Name);
+            textViewPlayer1.setTextColor(Color.RED);
+            TextView textViewPlayer2 = findViewById(R.id.player2Name);
+            textViewPlayer2.setVisibility(View.INVISIBLE);
+            TextView textViewPlayer1Score = findViewById(R.id.player1);
+            textViewPlayer1Score.setTextColor(Color.RED);
+            TextView textViewPlayer2Score = findViewById(R.id.player2);
+            textViewPlayer2Score.setVisibility(View.INVISIBLE);
+            ImageView imageView = findViewById(R.id.player2pic);
+            imageView.setVisibility(View.INVISIBLE);
+        }
+        if(playerNumber==2){
+            TextView textViewPlayer1 = findViewById(R.id.player1Name);
+            textViewPlayer1.setTextColor(Color.RED);
+            TextView textViewPlayer2 = findViewById(R.id.player2Name);
+            textViewPlayer2.setTextColor(Color.GRAY);
+            TextView textViewPlayer1Score = findViewById(R.id.player1);
+            textViewPlayer1Score.setTextColor(Color.RED);
+            TextView textViewPlayer2Score = findViewById(R.id.player2);
+            textViewPlayer2Score.setTextColor(Color.GRAY);
+        }
     }
 
     public void initEnviInverse(){
-        TextView textViewPlayer1 = findViewById(R.id.player1Name);
-        textViewPlayer1.setTextColor(Color.GRAY);
-        TextView textViewPlayer2 = findViewById(R.id.player2Name);
-        textViewPlayer2.setTextColor(Color.RED);
-        TextView textViewPlayer1Score = findViewById(R.id.player1);
-        textViewPlayer1Score.setTextColor(Color.GRAY);
-        TextView textViewPlayer2Score = findViewById(R.id.player2);
-        textViewPlayer2Score.setTextColor(Color.RED);
+        if(playerNumber==1){
+            TextView textViewPlayer1 = findViewById(R.id.player1Name);
+            textViewPlayer1.setTextColor(Color.RED);
+            TextView textViewPlayer2 = findViewById(R.id.player2Name);
+            textViewPlayer2.setVisibility(View.INVISIBLE);
+            TextView textViewPlayer1Score = findViewById(R.id.player1);
+            textViewPlayer1Score.setTextColor(Color.RED);
+            TextView textViewPlayer2Score = findViewById(R.id.player2);
+            textViewPlayer2Score.setVisibility(View.INVISIBLE);
+            ImageView imageView = findViewById(R.id.player2pic);
+            imageView.setVisibility(View.INVISIBLE);
+        }
+        if(playerNumber==2){
+            TextView textViewPlayer1 = findViewById(R.id.player1Name);
+            textViewPlayer1.setTextColor(Color.GRAY);
+            TextView textViewPlayer2 = findViewById(R.id.player2Name);
+            textViewPlayer2.setTextColor(Color.RED);
+            TextView textViewPlayer1Score = findViewById(R.id.player1);
+            textViewPlayer1Score.setTextColor(Color.GRAY);
+            TextView textViewPlayer2Score = findViewById(R.id.player2);
+            textViewPlayer2Score.setTextColor(Color.RED);
+        }
     }
 }
 
